@@ -1,0 +1,141 @@
+.Contact {
+  position: relative;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.crystal {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 215, 0, 0.2);
+  padding: 60px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 0 80px rgba(255, 255, 0, 0.1);
+  backdrop-filter: blur(10px);
+  animation: float 6s ease-in-out infinite;
+  transition: all 0.3s ease;
+  max-width: 600px;
+}
+
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 0 0 20px gold;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.info {
+  display: grid;
+  gap: 16px;
+  font-size: 1rem;
+
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    transition: 0.3s;
+
+    svg {
+      color: gold;
+      filter: drop-shadow(0 0 5px gold);
+    }
+
+    a,
+    span {
+      color: #fefce8;
+      text-decoration: none;
+
+      &:hover {
+        color: #ffd700;
+        text-shadow: 0 0 6px gold;
+      }
+    }
+  }
+}
+
+.sendBtn {
+  margin-top: 40px;
+  padding: 14px 36px;
+  background: linear-gradient(135deg, #ffd700, #ffecb3);
+  color: black;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  box-shadow: 0 0 20px gold;
+  cursor: pointer;
+  transition: all 0.4s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px #ffd700;
+  }
+}
+
+/* glowing background orb */
+.glowOrb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.08), transparent 70%);
+  transform: translate(-50%, -50%);
+  filter: blur(120px);
+  z-index: 1;
+  animation: rotateGlow 40s linear infinite;
+}
+
+/* animated stars */
+.starField::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/stars.svg"); // ты можешь заменить на генерацию частиц
+  opacity: 0.03;
+  animation: moveStars 180s linear infinite;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes rotateGlow {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes moveStars {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 2000px 1000px;
+  }
+}

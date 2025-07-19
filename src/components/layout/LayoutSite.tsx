@@ -12,7 +12,6 @@ const LayoutSite: FC<Lay> = ({ children }) => {
   return (
     <div className={scss.Layout}>
       <div className={scss.bg}></div>
-
       <Header />
       <main>{children}</main>
       <Footer />
