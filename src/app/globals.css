@@ -1,0 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+  color: white;
+  font-family: monospace;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 40px;
+  @media (max-width: 600px) {
+    padding-inline: 0px;
+  }
+}
+
+input {
+  outline: none;
+}
+
+body {
+  background: #000000;
+}
+
+html {
+  scroll-behavior: smooth;
+}
