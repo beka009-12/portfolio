@@ -1,6 +1,9 @@
 "use client";
-import { FC, useState } from "react";
+import { FC } from "react";
 import scss from "./Work.module.scss";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
+import Inscription from "../../../../ui/inscription/Inscription";
 
 interface Project {
   title: string;
@@ -14,15 +17,16 @@ const projects: Project[] = [
   {
     title: "Library Osh SPU",
     description: "Personal library built with React and RTK Query.",
-    image: "https://thumbs.dreamstime.com/b/river-heart-19410690.jpg",
+    image:
+      "https://cdn.prod.website-files.com/5e8e816d43060db856099187/627176112f5d9547eded801e_engineer-portfolio-webflow-template.png",
     demoLink: "https://your-demo-link.com",
-    codeLink: "https://github.com/yourusername/portfolio",
+    codeLink: "https://github.com/beka009-12/book",
   },
   {
     title: "Task Manager App",
     description: "Productivity app using Firebase & TypeScript.",
     image:
-      "https://thumbs.dreamstime.com/b/hidden-paradise-near-ioannina-greece-90013025.jpg",
+      "https://repository-images.githubusercontent.com/517182867/327acc25-9c2f-4d43-92c6-33eb1893439a",
     demoLink: "https://your-taskapp-demo.com",
     codeLink: "https://github.com/yourusername/task-manager",
   },
@@ -30,75 +34,55 @@ const projects: Project[] = [
     title: "E-commerce Site",
     description: "Modern shopping site with cart and filter features.",
     image:
-      "https://thumbs.dreamstime.com/b/fascinating-jungle-numerous-waterfalls-streams-like-fabulous-world-water-miracl-fascinating-jungle-numerous-311926255.jpg",
+      "https://htmlburger.com/blog/wp-content/uploads/2024/02/developer-portfolios.jpg",
     demoLink: "https://your-shop-demo.com",
     codeLink: "https://github.com/yourusername/ecommerce-site",
   },
 ];
 
 const Work: FC = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-
-  const handleImageClick = (src: string) => {
-    setSelectedImage(src);
-  };
-
-  const closeModal = () => {
-    setSelectedImage(null);
-  };
-
   return (
     <section id="works" className={scss.Work}>
       <div className="container">
-        <h2 className={scss.title}>My Works</h2>
-        <div className={scss.timeline}>
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className={`${scss.block} ${
-                index % 2 === 0 ? scss.left : scss.right
-              }`}
-            >
-              <div className={scss.content}>
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  onClick={() => handleImageClick(project.image)}
-                />
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.description}</p>
+        <Inscription title="03. My Works" />
+        <div className={scss.box}>
+          {projects.map((item, index) => {
+            const [ref, inView] = useInView({
+              triggerOnce: true,
+              threshold: 0.1,
+            });
+
+            return (
+              <motion.div
+                key={index}
+                ref={ref}
+                initial={{ opacity: 0, y: 50 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.3, delay: index * 0.2 }}
+                className={scss.cards}
+              >
+                <div
+                  className={scss.bgImage}
+                  style={{ backgroundImage: `url(${item.image})` }}
+                ></div>
+                <div className={scss.content}>
+                  <div className={scss.text}>
+                    <h1>{item.title}</h1>
+                    <p>{item.description}</p>
+                  </div>
                   <div className={scss.links}>
-                    <a
-                      className={scss.Btn}
-                      href={project.demoLink}
-                      target="_blank"
-                    >
-                      Demo
+                    <a href={item.demoLink} target="_blank" rel="noreferrer">
+                      demo
                     </a>
-                    <a
-                      className={scss.Btn}
-                      href={project.codeLink}
-                      target="_blank"
-                    >
-                      Code
+                    <a href={item.codeLink} target="_blank" rel="noreferrer">
+                      code
                     </a>
                   </div>
                 </div>
-              </div>
-            </div>
-          ))}
+              </motion.div>
+            );
+          })}
         </div>
-
-        {/* Lightbox Modal */}
-        {selectedImage && (
-          <div className={scss.modal} onClick={closeModal}>
-            <img src={selectedImage} alt="Enlarged" />
-            <button className={scss.close} onClick={closeModal}>
-              ×
-            </button>
-          </div>
-        )}
       </div>
     </section>
   );

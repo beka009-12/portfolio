@@ -1,8 +1,13 @@
 import { type FC } from "react";
 import scss from "./About.module.scss";
 import ScrambledText from "@/animated/gsap/ScrambleText";
+import TiltedCard from "@/animated/ProfileCard/TiltedCard";
 
 const About: FC = () => {
+  const photo = {
+    photo:
+      "https://www.shutterstock.com/image-vector/shocked-cat-pixel-art-meme-600nw-2476146921.jpg",
+  };
   return (
     <section id="about" className={scss.About}>
       <div className="container">
@@ -11,7 +16,7 @@ const About: FC = () => {
             <div className={scss.right}>
               <div className={scss.text}>
                 <p>hello, my name is</p>
-                <h2>Uiio Uiio</h2>
+                <h2>Nurmamitov Bekbol</h2>
               </div>
               <ScrambledText
                 className="scrambled-text-demo"
@@ -35,9 +40,27 @@ const About: FC = () => {
               </ScrambledText>
             </div>
             <div className={scss.left}>
-              <img
-                src="https://png.pngtree.com/recommend-works/png-clipart/20240516/ourmid/pngtree-cat-with-glasses-meme-sticker-tshirt-illustration-png-image_12476682.png"
-                alt="me"
+              <TiltedCard
+                imageSrc={photo.photo}
+                altText="Kendrick Lamar - GNX Album Cover"
+                captionText="@beka_ty"
+                containerHeight="300px"
+                containerWidth="300px"
+                imageHeight="300px"
+                imageWidth="300px"
+                rotateAmplitude={12}
+                scaleOnHover={1.05}
+                showMobileWarning={true}
+                showTooltip={true}
+                displayOverlayContent={true}
+                overlayContent={
+                  <p
+                    style={{ color: "black" }}
+                    className="tilted-card-demo-text"
+                  >
+                    Hello!
+                  </p>
+                }
               />
             </div>
           </div>

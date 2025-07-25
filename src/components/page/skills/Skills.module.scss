@@ -1,84 +1,109 @@
-.skills {
-  cursor: grab;
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-  gap: 16px;
-  padding-block: 20px;
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
+.skillsSection {
+  padding: 40px 0;
+  text-align: center;
 
-  &::-webkit-scrollbar {
-    height: 6px;
-  }
-
-  &::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: #ffd9004f;
-    border-radius: 10px;
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 26px;
+    padding: 0 20px;
   }
 
   .skillCard {
-    flex: 0 0 auto;
+    position: relative;
+    width: 84px;
+    height: 84px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(6px);
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.02),
+      0 0 14px rgba(255, 215, 0, 0.05);
     display: flex;
     align-items: center;
-    gap: 10px;
-    border-radius: 12px;
-    padding: 10px 16px;
-    min-width: 160px;
-    color: #fff;
-    font-weight: 500;
-    font-size: 14px;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 8px rgba(255, 217, 0, 0.056),
-      0 0 16px rgba(255, 215, 0, 0.1);
+    justify-content: center;
+    cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-    @media (max-width: 480px) {
-      min-width: 120px;
-      font-size: 12px;
-      padding: 8px 12px;
-    }
+    overflow: visible;
+    z-index: 0;
 
     img {
-      width: 28px;
-      height: 28px;
-      object-fit: contain;
-      filter: drop-shadow(0 0 5px rgba(255, 215, 0, 0.6));
-
-      @media (max-width: 480px) {
-        width: 22px;
-        height: 22px;
-      }
-    }
-
-    span {
-      white-space: nowrap;
-      text-shadow: 0 0 4px rgba(255, 215, 0, 0.6);
+      width: 36px;
+      height: 36px;
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.08));
+      transition: transform 0.3s ease;
+      z-index: 1;
     }
 
     &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 12px rgba(255, 217, 0, 0.108),
-        0 0 24px rgba(255, 166, 0, 0.097),
-        inset 0 0 8px rgba(255, 217, 0, 0.053);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(250, 204, 21, 0.3),
+        0 0 35px rgba(255, 255, 255, 0.08);
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.04),
+        transparent
+      );
+      z-index: -1;
+    }
+
+    &::after {
+      content: attr(data-name);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%) translateY(5px);
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1);
+    }
+
+    &:hover::after {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
     }
   }
 }
 
-.skillsSection {
-  text-align: center;
-  padding-block: 40px;
-  h2 {
-    color: #ffd700;
-    text-shadow: 0 0 5px #ffd900ab, 0 0 10px #ffa600bc, 0 0 20px #ff8c00ad;
-    letter-spacing: 1px;
-    font-size: 30px;
+@media (max-width: 480px) {
+  .skillsSection {
+    h2 {
+      font-size: 26px;
+      margin-bottom: 40px;
+    }
+
+    .skills {
+      gap: 18px;
+    }
+
+    .skillCard {
+      width: 70px;
+      height: 70px;
+
+      img {
+        width: 28px;
+        height: 28px;
+      }
+
+      &::after {
+        font-size: 10px;
+        bottom: -26px;
+      }
+    }
   }
 }

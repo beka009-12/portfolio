@@ -6,6 +6,7 @@ import Particles from "@/animated/Particles/Particles";
 import Work from "./sections/Work";
 import Contact from "./sections/Contact";
 import SocialIcons from "./SocialIcons/SocialIcons";
+import Skills from "./skills/Skills";
 
 const HomePage: FC = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage: FC = () => {
       <SocialIcons />
       <Main />
       <Experience />
+      {/* <Skills /> */}
       <Work />
       <Contact />
     </div>

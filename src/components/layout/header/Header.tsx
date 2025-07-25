@@ -16,7 +16,7 @@ const Header: FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       let currentSectionId = "";
-      const offset = 200; // на сколько пикселей выше секции считать её активной
+      const offset = 200;
 
       for (const item of link) {
         const id = item.href.replace("#", "");
@@ -35,7 +35,7 @@ const Header: FC = () => {
     };
 
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // на случай, если пользователь уже не вверху
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeId]);
 

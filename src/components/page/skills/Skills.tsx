@@ -1,5 +1,6 @@
 import { FC } from "react";
 import scss from "./Skills.module.scss";
+import Inscription from "../../../../ui/inscription/Inscription";
 
 interface Tech {
   name: string;
@@ -26,17 +27,22 @@ const techList: Tech[] = [
 const Skills: FC = () => {
   return (
     <div className={scss.skillsSection}>
-      <h2>Skills</h2>
-      <div className={scss.skills}>
-        {techList.map((tech) => (
-          <div key={tech.name} className={scss.skillCard}>
-            <img
-              src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}/${tech.icon}-original.svg`}
-              alt={tech.name}
-            />
-            <span>{tech.name}</span>
-          </div>
-        ))}
+      <div className="container">
+        <Inscription title="Skills" />
+        <div className={scss.skills}>
+          {techList.map((tech) => (
+            <div
+              key={tech.name}
+              className={scss.skillCard}
+              data-name={tech.name}
+            >
+              <img
+                src={`https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/${tech.icon}/${tech.icon}-original.svg`}
+                alt={tech.name}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

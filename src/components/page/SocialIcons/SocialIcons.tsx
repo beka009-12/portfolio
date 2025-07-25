@@ -1,30 +1,39 @@
-import { Github, Instagram, Linkedin } from "lucide-react";
-import styles from "./SocialIcons.module.scss";
-import { FaTelegramPlane } from "react-icons/fa";
+import { FaTelegramPlane, FaGithub, FaInstagram } from "react-icons/fa";
+import scss from "./SocialIcons.module.scss";
 
 const SocialIcons = () => {
+  const socials = [
+    {
+      name: "Telegram",
+      icon: <FaTelegramPlane />,
+      link: "https://web.telegram.org/k/#@bekbol_2009",
+    },
+    {
+      name: "GitHub",
+      icon: <FaGithub />,
+      link: "https://github.com/yourusername",
+    },
+    {
+      name: "Instagram",
+      icon: <FaInstagram />,
+      link: "https://instagram.com/yourusername",
+    },
+  ];
+
   return (
-    <div className={styles.socialIcons}>
-      <a
-        href="https://github.com/beka009-12/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Github className={styles.icons} />
-      </a>
-      <a
-        href="https://linkedin.com/in/yourusername"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Linkedin className={styles.icons} />
-      </a>
-      <a href="mailto:youremail@example.com">
-        <Instagram className={styles.icons} />
-      </a>
-      <a href="mailto:youremail@example.com">
-        <FaTelegramPlane className={styles.icons} />
-      </a>
+    <div className={scss.socialIcons}>
+      {socials.map((social, index) => (
+        <a
+          key={index}
+          href={social.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={social.name}
+          className={scss.iconLink}
+        >
+          <div className={scss.iconWrapper}>{social.icon}</div>
+        </a>
+      ))}
     </div>
   );
 };

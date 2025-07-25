@@ -1,16 +1,12 @@
 import React, { FC } from "react";
-import StarBorder from "./StarBorder/StarBorder";
+import scss from "./Btn.module.scss";
 
 interface ITitle {
   title: string;
 }
 
 const Btn: FC<ITitle> = ({ title }) => {
-  return (
-    <StarBorder as="button" className="custom-class" color="cyan" speed="5s">
-      {title}
-    </StarBorder>
-  );
+  return <button className={scss.btn}>{title}</button>;
 };
 
 export default Btn;
