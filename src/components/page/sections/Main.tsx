@@ -18,13 +18,21 @@ const Main: FC = () => {
       <section className={scss.Main}>
         <div className="container">
           <div className={scss.content}>
-            <h2 className={scss.gold}>
-              Turning ideas into effective web solutions
-            </h2>
-            <h1>From elegant frontend to backend logic, I create it all.</h1>
-            <button className={scss.scrollBtn} onClick={scrollToNextSection}>
-              <BiChevronDown size={32} />
-              <p>Click me</p>
+            <h2 className={scss.gold}>Hello, I'm Bekbol</h2>
+            <h1 className={scss.title}>
+              Frontend Developer & <br /> UI Designer
+            </h1>
+            <p className={scss.subtitle}>
+              Frontend developer & UI designer, creating stunning digital
+              interfaces
+            </p>
+            <button
+              className={scss.scrollBtn}
+              onClick={scrollToNextSection}
+              aria-label="Scroll to about section"
+            >
+              <BiChevronDown size={40} className={scss.icon} />
+              <span className={scss.scrollText}>Scroll down</span>
             </button>
           </div>
         </div>

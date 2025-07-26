@@ -1,6 +1,5 @@
 .About {
-  padding-block: 80px;
-  color: #eee;
+  padding-block: 100px;
 
   .box {
     display: flex;
@@ -47,7 +46,7 @@
 
       .right {
         max-width: 700px;
-        filter: drop-shadow(3px 3px 10px #ffd9009f);
+        filter: drop-shadow(3px 3px 10px #ffd900ac);
         text-align: left;
 
         @media (max-width: 1024px) {
@@ -78,8 +77,7 @@
 
           p {
             font-size: 16px;
-            color: #ffd700;
-            text-shadow: 0 0 5px #ffd900dc, 0 0 10px #ffa500, 0 0 20px #ff8c00;
+            color: #feb540;
             margin: 0;
             text-transform: uppercase;
           }
