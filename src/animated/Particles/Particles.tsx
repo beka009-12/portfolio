@@ -96,17 +96,17 @@ const fragment = /* glsl */ `
 `;
 
 const Particles: React.FC<ParticlesProps> = ({
-  particleCount = 180,
-  particleSpread = 5,
-  speed = 0.03,
+  particleCount = 200,
+  particleSpread = 10,
+  speed = 0.3,
   particleColors,
   moveParticlesOnHover = false,
   particleHoverFactor = 10,
-  alphaParticles = true,
-  particleBaseSize = 15,
+  alphaParticles = false,
+  particleBaseSize = 100,
   sizeRandomness = 10,
   cameraDistance = 20,
-  disableRotation = true,
+  disableRotation = false,
   className,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);

@@ -7,10 +7,14 @@ import logo from "../../../../public/logo5.png";
 
 const Header: FC = () => {
   const [activeId, setActiveId] = useState<string>("");
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   const scrollToId = (id: string) => {
     const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+      setMenuOpen(false); // Закрыть меню после перехода
+    }
   };
 
   useEffect(() => {
@@ -44,7 +48,16 @@ const Header: FC = () => {
       <div className="container">
         <div className={scss.content}>
           <Image src={logo} alt="Logo" />
-          <nav>
+          <div
+            className={`${scss.menuToggle} ${menuOpen ? scss.open : ""}`}
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <nav className={menuOpen ? scss.open : ""}>
             {link.map((item, index) => {
               const id = item.href.replace("#", "");
               const isActive = activeId === id;

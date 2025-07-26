@@ -34,7 +34,6 @@
     background: #1a1a1a7a;
     border: 1px solid #333;
     padding: 20px 25px;
-    border-radius: 20px;
     margin: 40px 0;
     position: relative;
     box-shadow: 0 0 20px rgba(250, 204, 21, 0.2);
@@ -42,7 +41,6 @@
     z-index: 2;
 
     &:hover {
-      border-radius: 20px 20px 0 0;
       transform: translateY(-5px);
       box-shadow: 0 0 30px rgba(250, 204, 21, 0.122);
     }
@@ -89,14 +87,23 @@
 
     .year {
       position: absolute;
-      top: -15px;
-      left: 0px;
-      background: #facc15;
-      color: black;
-      padding: 4px 12px;
-      font-weight: bold;
-      border-radius: 12px;
+      top: -18px;
+      left: 0;
+      padding: 6px 18px;
+      font-weight: 700;
       font-size: 14px;
+      color: #222;
+      background: linear-gradient(135deg, #facc15, #ffeb3b);
+      border-radius: 12px 0 12px 0; // острые углы справа и снизу
+      text-shadow: 0 0 3px #facc15, 0 0 5px #facc15aa;
+      user-select: none;
+      border: 2px solid #facc15;
+
+      &.right {
+        left: 0;
+        right: 0;
+        border-radius: 0 12px 0 12px;
+      }
     }
   }
 
