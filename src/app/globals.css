@@ -5,6 +5,7 @@
   box-sizing: border-box;
   color: white;
   font-family: monospace;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .container {
@@ -27,4 +28,11 @@ body {
 
 html {
   scroll-behavior: smooth;
+}
+
+button,
+a,
+img {
+  user-select: none;
+  outline: none;
 }
