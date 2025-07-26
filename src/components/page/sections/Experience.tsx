@@ -15,15 +15,15 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     year: "2024",
-    title: "Frontend Developer",
-    linkCompany: "",
-    company: "Creative Agency",
+    title: "Motion Web",
+    linkCompany: "https://motion.kg/",
+    company: "MotionWeb",
     description:
       "Developed interactive user interfaces with React, GSAP and Tailwind. Led animations and performance optimization.",
   },
   {
-    year: "2023",
-    title: "Intern Developer",
+    year: "2024",
+    title: "Online Library",
     linkCompany: "",
     company: "TechHub",
     description:
@@ -59,7 +59,14 @@ const Experience: FC = () => {
               <span className={scss.year}>{item.year}</span>
               <div className={scss.content}>
                 <h3>
-                  {item.title} <a href="">@{item.company}</a>
+                  {item.title}{" "}
+                  <a
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href={item.linkCompany}
+                  >
+                    @{item.company}
+                  </a>
                 </h3>
                 <p>{item.description}</p>
               </div>
