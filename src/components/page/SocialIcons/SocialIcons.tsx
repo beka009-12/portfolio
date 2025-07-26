@@ -11,12 +11,12 @@ const SocialIcons = () => {
     {
       name: "GitHub",
       icon: <FaGithub />,
-      link: "https://github.com/yourusername",
+      link: "https://github.com/beka009-12",
     },
     {
       name: "Instagram",
       icon: <FaInstagram />,
-      link: "https://instagram.com/yourusername",
+      link: "https://www.instagram.com/beka_ty_/",
     },
   ];
 
