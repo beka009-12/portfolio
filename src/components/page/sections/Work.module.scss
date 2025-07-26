@@ -95,7 +95,6 @@
 
         .links {
           display: flex;
-          flex-wrap: wrap;
           gap: 12px;
 
           a {
@@ -235,7 +234,6 @@
           }
 
           .links {
-            flex-direction: column;
             gap: 6px;
 
             a {

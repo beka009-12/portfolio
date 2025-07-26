@@ -24,8 +24,8 @@
 
     img {
       width: 100px;
-      height: auto;
-      object-fit: contain;
+      height: 50px;
+      object-fit: cover;
       filter: drop-shadow(3px 3px 10px #ffd700);
       transition: transform 0.4s ease, filter 0.4s ease;
 

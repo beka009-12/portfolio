@@ -13,7 +13,7 @@ const Header: FC = () => {
     const el = document.getElementById(id);
     if (el) {
       el.scrollIntoView({ behavior: "smooth" });
-      setMenuOpen(false); // Закрыть меню после перехода
+      setMenuOpen(false);
     }
   };
 
